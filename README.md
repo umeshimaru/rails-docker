@@ -1,24 +1,34 @@
-# README
+# 作成する環境
+- ruby 3.2.2
+- Rails:7.0.6
+- Postgres:version12系
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# 環境構築方法
 
-* Ruby version
+①ローカル環境で任意のディレクトリを作成。
+```
+mkdir  rails-docker
+```
+②、①で作成したディレクトリでgit cloneコマンド実行
+```
+git clone https://github.com/umeshimaru/rails-docker.git
+```
+③コンテナ作成起動
+```
+docker compose up
+```
+④初めて起動する場合下記２つのコマンド実行(データベース作成)
+1つ目
+```
+docker-compose run web rake db:create
+```
+２つ目
+```
+docker-compose run web rails db:migrate
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+⑤localhost:3000にアクセスし「Task」,「New task」と表示されていたら完成
+```
+http://localhost:3000
+```
